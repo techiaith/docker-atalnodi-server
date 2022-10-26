@@ -1,0 +1,18 @@
+version: "3.1"
+
+services:
+
+  app:
+     image: techiaith/punctuation-restore-server
+     container_name: techiaith-punctuation-restore-server
+     build:
+      context: ${PWD}
+      dockerfile: Dockerfile
+     restart: always
+     stdin_open: True
+     tty: True
+     ports:
+       - "5555:8008"
+     volumes: 
+       - ${PWD}/models:/models
+       - ${PWD}/logs:/var/log/app
